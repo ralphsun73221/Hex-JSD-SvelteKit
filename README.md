@@ -55,4 +55,4 @@
 
 - 上個星期在處理完樣式推送 Clock 的時候發現一個情況，就是點擊 `Nav` 的時鐘頁面後還是出現九九乘法表，我猜測可能是 Compile 時並不會分開去處理不同頁面的 JS，而是統一由單一的 JS 檔案來處理（也就是 `index.html` 裡面載入的那一支），由於我使用的方式並不是官方建議的做法（因為官方建議用 SvelteKit），所以才會導致無論如何都只會吐九九乘法表的內容
 - 看起來最終還是要用 SvelteKit 來處理 route，所以之後的開發會從這邊繼續
-- SvelteKit 的架構跟原生的有許多的不同，最明顯的一點就是沒有 `index.html` 這個檔案，取而代之的是 `app.html`，原本的 src 除了原本的 lib 之外，多了 `server` `routes` `params` 跟其他可選檔案，但裡面除了 `app.html` 跟 `src/routes` 之外，其他都不是必須的
+- SvelteKit 的架構跟原生的有許多的不同，最明顯的一點就是沒有 `index.html` 這個檔案，取而代之的是 `app.html`，原本的 src 除了 `lib` 之外，多了 `server` `routes` `params` 跟其他可選檔案，但裡面除了 `app.html` 跟 `src/routes` 之外，其他都不是必須的
