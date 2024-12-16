@@ -56,3 +56,16 @@
 - 上個星期在處理完樣式推送 Clock 的時候發現一個情況，就是點擊 `Nav` 的時鐘頁面後還是出現九九乘法表，我猜測可能是 Compile 時並不會分開去處理不同頁面的 JS，而是統一由單一的 JS 檔案來處理（也就是 `index.html` 裡面載入的那一支），由於我使用的方式並不是官方建議的做法（因為官方建議用 SvelteKit），所以才會導致無論如何都只會吐九九乘法表的內容
 - 看起來最終還是要用 SvelteKit 來處理 route，所以之後的開發會從這邊繼續
 - SvelteKit 的架構跟原生的有許多的不同，最明顯的一點就是沒有 `index.html` 這個檔案，取而代之的是 `app.html`，原本的 src 除了 `lib` 之外，多了 `server` `routes` `params` 跟其他可選檔案，但裡面除了 `app.html` 跟 `src/routes` 之外，其他都不是必須的
+- 由於這次主要想用的是路由這個功能，就先紀錄這個部分的重點
+- route 的檔案開頭都是由 `+` 為第一個，並且使用資料夾為進入點，如果我建立了一個 `src/routes/about`，那對應的就是 `https://www.something.com/about` 這個 rotues
+- 前面提到 `src/routes` 裡面的檔案都是用 `+` 開頭，但也不是 `+` 之後可以亂取，目前定義的總共有四種，分別是：
+  1. +page
+    - 可以把這個視為該 routes 的 index.html，預設的情況下這個頁面算繪的模式是 SSR，也就是伺服器算繪
+    - 並且可以透過 `data` prop 從 `load` function 接受資料
+  2. +layout
+    - 這個東西的邏輯有點類似於 Astro 裡面的 layout，也就是那些可以重複使用的 component，譬如 Nav、Footer 這種
+    - 最重要的就是必須要加入 `{@render}` 這個標籤，這樣他才會去算繪你的 component
+  3. +error
+    - 這個目前應該遇不到，之後有遇到再說
+  4. +server
+  - 這個目前應該遇不到，之後有遇到再說
