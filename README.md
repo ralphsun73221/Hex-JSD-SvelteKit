@@ -64,7 +64,8 @@
     - 並且可以透過 `data` prop 從 `load` function 接受資料
   2. +layout
     - 這個東西的邏輯有點類似於 Astro 裡面的 layout，也就是那些可以重複使用的 component，譬如 Nav、Footer 這種
-    - 最重要的就是必須要加入 `{@render}` 這個標籤，這樣他才會去算繪你的 component
+    - 最重要的就是必須要加入 `{@render}` 這個標籤，這樣他才會去算繪其他引入的 component
+    - 原先在 Svelte 4 的時候是使用 <slot /> 雖然現在還是可以用，但是畢竟官方已經將這個功能列為過時，之後也會拔掉，所以還是用 `{@render}` 比較一勞永逸
   3. +error
     - 這個目前應該遇不到，之後有遇到再說
   4. +server
