@@ -77,3 +77,5 @@
    - 首先就是 `+layout.svelte` 裡面的 `let { children } = $props();`，我後來發現這個東西的目的是為了告訴 Svelte 可以在這個地方去算繪 `{@render children()}` 其他的 `+page` 的內容，children 是 Svelte 內建的一個[函式](https://svelte.dev/docs/svelte/@render#Optional-snippets)
    - 雖然 Svelte 5 可以直接轉換大部份的 TS，但是他也不是全部都可以正常認得（因為 ESlint 可能會報類似 `eslint: Parsing error: Unexpected token :` 這種的錯誤，但你明明沒有寫錯），官方的建議是[安裝另外一個外掛](https://svelte.dev/docs/kit/integrations)然後去 `svelte.config.js` 裡面設定，而且 SCSS 跟 SASS 也都需要做這個動作之後才能正常被認識（其實就是交給 vite 來處理啦）
    - 我一開始不懂 `app.html` 裡面的 `%sveltekit.head%` 可以幹嗎（只知道是用來佔位的），後來發現他是用來接受 component 裡面 `<title></title>` 跟 `<link></link>` 的，這樣就可以顯示每一頁不同的網頁標題，以及根據不同的 component 的需求載入不同的其他的 JS
+- 我現在的問題就是為何 `static/clock-bg.svg` 沒有辦法顯示，明明其他的 svg 都沒有問題啊...
+  - 好的，因為我的路徑寫錯了，SvelteKit 會自動的去 `/static` 裡面找對應的資源，所以在沒有其他子資料夾的情況下只要直接 `/檔案名稱` 就可以了

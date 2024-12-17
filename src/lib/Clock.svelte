@@ -33,14 +33,14 @@
 		.clock-bg {
 			width: 500px;
 			height: 500px;
-			background-image: url("/static/clock-bg.svg");
+			background-image: url("/clock-bg.svg");
 			margin: 0 auto;
 			position: relative;
 
 			.hour {
 				width: 72px;
 				height: 8px;
-				background-image: url("/static/hour-hand.svg");
+				background-image: url("/hour-hand.svg");
 				position: absolute;
 				top: 48.6%;
 				left: 49.3%;
@@ -49,7 +49,7 @@
 			.minute {
 				width: 8px;
 				height: 96px;
-				background-image: url("/static/minute-hand.svg");
+				background-image: url("/minute-hand.svg");
 				position: absolute;
 				top: 31%;
 				left: 49.2%;
@@ -58,7 +58,7 @@
 			.second {
 				width: 12px;
 				height: 126px;
-				background-image: url("/static/second-hand.svg");
+				background-image: url("/second-hand.svg");
 				position: absolute;
 				top: 50%;
 				left: 48.7%;
