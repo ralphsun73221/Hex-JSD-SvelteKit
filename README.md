@@ -60,20 +60,20 @@
 - route 的檔案開頭都是由 `+` 為第一個，並且使用資料夾為進入點，如果我建立了一個 `src/routes/about`，那對應的就是 `https://www.something.com/about` 這個 rotues
 - 前面提到 `src/routes` 裡面的檔案都是用 `+` 開頭，但也不是 `+` 之後可以亂取，目前定義的總共有四種，分別是：
   1. +page
-    - 可以把這個視為該 routes 的 index.html，預設的情況下這個頁面算繪的模式是 SSR，也就是伺服器算繪
-    - 並且可以透過 `data` prop 從 `load` function 接受資料
+     - 可以把這個視為該 routes 的 index.html，預設的情況下這個頁面算繪的模式是 SSR，也就是伺服器算繪
+     - 並且可以透過 `data` prop 從 `load` function 接受資料
   2. +layout
-    - 這個東西的邏輯有點類似於 Astro 裡面的 layout，也就是那些可以重複使用的 component，譬如 Nav、Footer 這種
-    - 最重要的就是必須要加入 `{@render}` 這個標籤，這樣他才會去算繪其他引入的 component
-    - 原先在 Svelte 4 的時候是使用 <slot /> 雖然現在還是可以用，但是畢竟官方已經將這個功能列為過時，之後也會拔掉，所以還是用 `{@render}` 比較一勞永逸
+     - 這個東西的邏輯有點類似於 Astro 裡面的 layout，也就是那些可以重複使用的 component，譬如 Nav、Footer 這種
+     - 最重要的就是必須要加入 `{@render}` 這個標籤，這樣他才會去算繪其他引入的 component
+     - 原先在 Svelte 4 的時候是使用 <slot /> 雖然現在還是可以用，但是畢竟官方已經將這個功能列為過時，之後也會拔掉，所以還是用 `{@render}` 比較一勞永逸
   3. +error
-    - 這個目前應該遇不到，之後有遇到再說
+     - 這個目前應該遇不到，之後有遇到再說
   4. +server
-  - 這個目前應該遇不到，之後有遇到再說
+     - 這個目前應該遇不到，之後有遇到再說
 
 ### 241217
 
 - 今天把原本的 component 都轉移到了這邊，有些東西值得紀錄一下
-  - 首先就是 `+layout.svelte` 裡面的 `let { children } = $props();`，我後來發現這個東西的目的是為了告訴 Svelte 可以在這個地方去算繪 `{@render children()}` 其他的 `+page` 的內容，children 是 Svelte 內建的一個[函式](https://svelte.dev/docs/svelte/@render#Optional-snippets)
-  - 雖然 Svelte 5 可以直接轉換大部份的 TS，但是他也不是全部都可以正常認得（因為 ESlint 可能會報類似 `eslint: Parsing error: Unexpected token :` 這種的錯誤，但你明明沒有寫錯），官方的建議是[安裝另外一個外掛](https://svelte.dev/docs/kit/integrations)然後去 `svelte.config.js` 裡面設定，而且 SCSS 跟 SASS 也都需要做這個動作之後才能正常被認識（其實就是交給 vite 來處理啦）
-  - 我一開始不懂 `app.html` 裡面的 `%sveltekit.head%` 可以幹嗎（只知道是用來佔位的），後來發現他是用來接受 component 裡面 `<title></title>` 跟 `<link></link>` 的，這樣就可以顯示每一頁不同的網頁標題，以及根據不同的 component 的需求載入不同的其他的 JS
+   - 首先就是 `+layout.svelte` 裡面的 `let { children } = $props();`，我後來發現這個東西的目的是為了告訴 Svelte 可以在這個地方去算繪 `{@render children()}` 其他的 `+page` 的內容，children 是 Svelte 內建的一個[函式](https://svelte.dev/docs/svelte/@render#Optional-snippets)
+   - 雖然 Svelte 5 可以直接轉換大部份的 TS，但是他也不是全部都可以正常認得（因為 ESlint 可能會報類似 `eslint: Parsing error: Unexpected token :` 這種的錯誤，但你明明沒有寫錯），官方的建議是[安裝另外一個外掛](https://svelte.dev/docs/kit/integrations)然後去 `svelte.config.js` 裡面設定，而且 SCSS 跟 SASS 也都需要做這個動作之後才能正常被認識（其實就是交給 vite 來處理啦）
+   - 我一開始不懂 `app.html` 裡面的 `%sveltekit.head%` 可以幹嗎（只知道是用來佔位的），後來發現他是用來接受 component 裡面 `<title></title>` 跟 `<link></link>` 的，這樣就可以顯示每一頁不同的網頁標題，以及根據不同的 component 的需求載入不同的其他的 JS
