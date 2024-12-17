@@ -29,6 +29,7 @@
 		"vite": "^6.0.3"
 	},
 	"dependencies": {
-		"sass": "^1.83.0"
+		"sass": "^1.83.0",
+		"svelte-preprocess": "^6.0.3"
 	}
 }
