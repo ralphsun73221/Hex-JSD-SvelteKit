@@ -2,9 +2,9 @@
 </script>
 
 <link
-			rel="icon"
-			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>s🕒</text></svg>"
-		/>
+	rel="icon"
+	href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>s🕒</text></svg>"
+/>
 <title>時鐘</title>
 
 <main>
@@ -33,32 +33,32 @@
 		.clock-bg {
 			width: 500px;
 			height: 500px;
-			background-image: url("/clock-bg.svg");
+			background-image: url('/clock-bg.svg');
 			margin: 0 auto;
 			position: relative;
 
 			.hour {
 				width: 72px;
 				height: 8px;
-				background-image: url("/hour-hand.svg");
+				background-image: url('/hour-hand.svg');
 				position: absolute;
 				top: 48.6%;
 				left: 49.3%;
 			}
-			
+
 			.minute {
 				width: 8px;
 				height: 96px;
-				background-image: url("/minute-hand.svg");
+				background-image: url('/minute-hand.svg');
 				position: absolute;
 				top: 31%;
 				left: 49.2%;
 			}
-			
+
 			.second {
 				width: 12px;
 				height: 126px;
-				background-image: url("/second-hand.svg");
+				background-image: url('/second-hand.svg');
 				position: absolute;
 				top: 50%;
 				left: 48.7%;

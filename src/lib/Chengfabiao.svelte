@@ -4,16 +4,16 @@
 
 	// 將 card-content 裡面會使用到的資料統一用函式處理
 	const CARD_CONTENT = (num: number, arr: number[]) => {
-		console.log("目前的 num:", num); // 會看到是 2,3,4...9
-		console.log("完整的 arr:", arr); // 會看到是 [1,2,3,4,5,6,7,8,9]
+		console.log('目前的 num:', num); // 會看到是 2,3,4...9
+		console.log('完整的 arr:', arr); // 會看到是 [1,2,3,4,5,6,7,8,9]
 		return arr.map((item) => `${num} X ${item} = ${num * item}`);
 	};
 </script>
 
 <link
-			rel="icon"
-			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>"
-		/>
+	rel="icon"
+	href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧮</text></svg>"
+/>
 <title>九九乘法表</title>
 
 <main>

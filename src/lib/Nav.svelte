@@ -18,7 +18,7 @@
 			max-width: 1280px;
 			display: flex;
 			flex-direction: row;
-			
+
 			li {
 				padding: 12px 0;
 				padding-right: 24px;

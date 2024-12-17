@@ -7,18 +7,20 @@
 - 這次使用之前一直想嘗試的新東西，譬如使用 `display:grid` 來當成主要的排版方式，以及使用 SCSS 來撰寫 style，然後使用 vite 當成打包工具
 
 ### 241208
+
 - HTML 以及 CSS 都跟原本的架構相同，只不過改用 Svelte 來實作
 - `{#each}` 的邏輯完成，但是現在卡在要如何讓樣式跟設計稿一樣
 - 試了不少的方式，最終還是用 `display: flex` 做出來差不多的效果，但是還有地方需要微調，但大的架構應該不會再有什麼很大的變動
 - 結果還是用了一個最簡單的 `space-between` 就解決了排版問題
 
 ### 241209 - 九九乘法表的邏輯是什麼？
+
 - 這個可以好好的紀錄一下，為何程式碼最終會是現在這個樣子
 - 首先重構做了這幾件事情：
-    1. 一個是將原本重複 9 次的 `card-body` 縮減到一次，
-    2. 原本的 card-title 使用 `arr.slice(1)` 來產生，`slice()` 的用途是**指定陣列裡面開始處理的位置**，由於裡面寫了 1，所以會從 2 開始處理（因為 0 被跳過）
-    3. 增加一個**函式表達式**用來產生 `card-content` 的內容，
-    4. 2 跟 3 都搭配 `{#each}` 來產生出重複使用的內容
+  1. 一個是將原本重複 9 次的 `card-body` 縮減到一次，
+  2. 原本的 card-title 使用 `arr.slice(1)` 來產生，`slice()` 的用途是**指定陣列裡面開始處理的位置**，由於裡面寫了 1，所以會從 2 開始處理（因為 0 被跳過）
+  3. 增加一個**函式表達式**用來產生 `card-content` 的內容，
+  4. 2 跟 3 都搭配 `{#each}` 來產生出重複使用的內容
 - 我也是後來才發現原來 `{#each}` 裡面還可以再包 `{#each}`
 
 ### 241210
@@ -30,6 +32,7 @@
 - Main 改成了 Nav，首頁就是九九乘法表
 
 #### 關於 route
+
 - 想把首頁改成完成的列表，所以會處理到 route 的東西，所以來記錄一下截止目前為止 Svelte 的 route 要如何設定
 - 目前 Svelte 沒有內建 route 管理，但是 SvelteKit 裡面有（使用 `+page`)
 - 如果不用 SvelteKit 的話，那就要使用 [svelte-routing](https://github.com/jpcutshall/svelte5-router) 這個套件來處理
@@ -74,8 +77,9 @@
 ### 241217
 
 - 今天把原本的 component 都轉移到了這邊，有些東西值得紀錄一下
-   - 首先就是 `+layout.svelte` 裡面的 `let { children } = $props();`，我後來發現這個東西的目的是為了告訴 Svelte 可以在這個地方去算繪 `{@render children()}` 其他的 `+page` 的內容，children 是 Svelte 內建的一個[函式](https://svelte.dev/docs/svelte/@render#Optional-snippets)
-   - 雖然 Svelte 5 可以直接轉換大部份的 TS，但是他也不是全部都可以正常認得（因為 ESlint 可能會報類似 `eslint: Parsing error: Unexpected token :` 這種的錯誤，但你明明沒有寫錯），官方的建議是[安裝另外一個外掛](https://svelte.dev/docs/kit/integrations)然後去 `svelte.config.js` 裡面設定，而且 SCSS 跟 SASS 也都需要做這個動作之後才能正常被認識（其實就是交給 vite 來處理啦）
-   - 我一開始不懂 `app.html` 裡面的 `%sveltekit.head%` 可以幹嗎（只知道是用來佔位的），後來發現他是用來接受 component 裡面 `<title></title>` 跟 `<link></link>` 的，這樣就可以顯示每一頁不同的網頁標題，以及根據不同的 component 的需求載入不同的其他的 JS
+  - 首先就是 `+layout.svelte` 裡面的 `let { children } = $props();`，我後來發現這個東西的目的是為了告訴 Svelte 可以在這個地方去算繪 `{@render children()}` 其他的 `+page` 的內容，children 是 Svelte 內建的一個[函式](https://svelte.dev/docs/svelte/@render#Optional-snippets)
+  - 雖然 Svelte 5 可以直接轉換大部份的 TS，但是他也不是全部都可以正常認得（因為 ESlint 可能會報類似 `eslint: Parsing error: Unexpected token :` 這種的錯誤，但你明明沒有寫錯），官方的建議是[安裝另外一個外掛](https://svelte.dev/docs/kit/integrations)然後去 `svelte.config.js` 裡面設定，而且 SCSS 跟 SASS 也都需要做這個動作之後才能正常被認識（其實就是交給 vite 來處理啦）
+    - 結果還是一直出現...算了之後有時間再來研究好了
+  - 我一開始不懂 `app.html` 裡面的 `%sveltekit.head%` 可以幹嗎（只知道是用來佔位的），後來發現他是用來接受 component 裡面 `<title></title>` 跟 `<link></link>` 的，這樣就可以顯示每一頁不同的網頁標題，以及根據不同的 component 的需求載入不同的其他的 JS
 - 我現在的問題就是為何 `static/clock-bg.svg` 沒有辦法顯示，明明其他的 svg 都沒有問題啊...
   - 好的，因為我的路徑寫錯了，SvelteKit 會自動的去 `/static` 裡面找對應的資源，所以在沒有其他子資料夾的情況下只要直接 `/檔案名稱` 就可以了
