@@ -1,4 +1,12 @@
 <script lang="ts">
+	let time = new Date(); // 獲取當下時間
+
+	// 將當下時間設定成變數
+	let hour = time.getHours();
+	let minute = time.getMinutes();
+	let second = time.getSeconds();
+
+	console.log(`${hour}:${minute}:${second}`);
 </script>
 
 <svelte:head>
