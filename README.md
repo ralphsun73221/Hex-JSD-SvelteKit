@@ -84,3 +84,7 @@
     - 使用的方式是在對應的 component 裡面加上 `<svelte:head>內容</svelte:head>`，這樣在裡面的內容就會自己加到 `<head>` 裡面 
 - 我現在的問題就是為何 `static/clock-bg.svg` 沒有辦法顯示，明明其他的 svg 都沒有問題啊...
   - 好的，因為我的路徑寫錯了，SvelteKit 會自動的去 `/static` 裡面找對應的資源，所以在沒有其他子資料夾的情況下只要直接 `/檔案名稱` 就可以了
+
+### 241218
+
+- 意外的是，如果使用 VScode 的話同樣的錯誤（`eslint: Parsing error: Unexpected token :`）不會出現...，算了這個也不是重點，只是覺得有點莞爾
