@@ -19,9 +19,9 @@
 
 <main>
 	<div class="clock-bg">
-		<div class="hour"></div>
-		<div class="minute"></div>
-		<div class="second"></div>
+		<div class="second"><i></i></div>
+		<div class="hour"><i></i></div>
+		<div class="minute"><i></i></div>
 	</div>
 </main>
 
@@ -45,34 +45,61 @@
 			height: 500px;
 			background-image: url('/clock-bg.svg');
 			margin: 0 auto;
-			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+      position: relative;
 
 			.hour {
-				width: 72px;
-				height: 8px;
-				background-image: url('/hour-hand.svg');
 				position: absolute;
-				top: 48.6%;
-				left: 49.3%;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				transform: rotate(200deg);
+				i {
+					position: absolute;
+					width: 8px;
+					height: 72px;
+					background-image: url('/hour-hand.svg');
+				}
 			}
 
 			.minute {
-				width: 8px;
-				height: 96px;
-				background-image: url('/minute-hand.svg');
 				position: absolute;
-				top: 31%;
-				left: 49.2%;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				transform: rotate(134deg);
+				i {
+					position: absolute;
+					width: 8px;
+					height: 96px;
+					background-image: url('/minute-hand.svg');
+				}
 			}
 
 			.second {
-				width: 12px;
-				height: 126px;
-				background-image: url('/second-hand.svg');
 				position: absolute;
-				top: 50%;
-				left: 48.7%;
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				transform: rotate(157deg);
+				i {
+					position: absolute;
+					width: 12px;
+					height: 126px;
+					background-image: url('/second-hand.svg');
+				}
 			}
+		}
+		.clock-bg::before {
+			content: '';
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background-color: #fff;
+			// z-index: 2;
 		}
 	}
 </style>
