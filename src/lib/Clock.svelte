@@ -2,9 +2,9 @@
 	let time = new Date(); // 獲取當下時間
 
 	// 將當下時間設定成變數
-	let hour = time.getHours();
-	let minute = time.getMinutes();
-	let second = time.getSeconds();
+	let hour: number = time.getHours();
+	let minute: number = time.getMinutes();
+	let second: number = time.getSeconds();
 
 	console.log(`${hour}:${minute}:${second}`);
 </script>
@@ -19,9 +19,9 @@
 
 <main>
 	<div class="clock-bg">
-		<div class="second"><i></i></div>
-		<div class="hour"><i></i></div>
-		<div class="minute"><i></i></div>
+		<div class="second"></div>
+		<div class="hour"></div>
+		<div class="minute"></div>
 	</div>
 </main>
 
@@ -45,61 +45,73 @@
 			height: 500px;
 			background-image: url('/clock-bg.svg');
 			margin: 0 auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-      position: relative;
+			// display: flex;
+			// justify-content: center;
+			// align-items: center;
+			position: relative;
 
 			.hour {
+				--rotate: 0;
 				position: absolute;
-				display: flex;
-				justify-content: center;
-				align-items: flex-end;
-				transform: rotate(200deg);
-				i {
-					position: absolute;
-					width: 8px;
-					height: 72px;
-					background-image: url('/hour-hand.svg');
-				}
+				left: 50%;
+				bottom: 50%;
+				transform-origin: bottom;
+				transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+				width: 8px;
+				height: 72px;
+				background-image: url('/hour-hand.svg');
+				// display: flex;
+				// justify-content: center;
+				// align-items: flex-end;
+				// transform: rotate(250deg);
 			}
 
 			.minute {
+				--rotate: 0;
 				position: absolute;
-				display: flex;
-				justify-content: center;
-				align-items: flex-end;
-				transform: rotate(134deg);
-				i {
-					position: absolute;
-					width: 8px;
-					height: 96px;
-					background-image: url('/minute-hand.svg');
-				}
+				left: 50%;
+				bottom: 50%;
+				transform-origin: bottom;
+				transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+				width: 8px;
+				height: 96px;
+				background-image: url('/minute-hand.svg');
+				// position: absolute;
+				// display: flex;
+				// justify-content: center;
+				// align-items: flex-end;
+				// transform: rotate(170deg);
 			}
 
 			.second {
+				--rotate: 0;
 				position: absolute;
-				display: flex;
-				justify-content: center;
-				align-items: flex-end;
-				transform: rotate(157deg);
-				i {
-					position: absolute;
-					width: 12px;
-					height: 126px;
-					background-image: url('/second-hand.svg');
-				}
+				left: 50%;
+				bottom: 50%;
+				transform-origin: bottom;
+				transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+				width: 13px;
+				height: 126px;
+				background-image: url('/second-hand.svg');
+				// position: absolute;
+				// display: flex;
+				// justify-content: center;
+				// align-items: flex-end;
+				// transform: rotate(90deg);
 			}
 		}
 		.clock-bg::before {
+      --rotate: 0;
 			content: '';
 			position: absolute;
-			width: 8px;
-			height: 8px;
+      left: 50%;
+      bottom: 49%;
+      transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+			width: 14px;
+			height: 14px;
 			border-radius: 50%;
-			background-color: #fff;
-			// z-index: 2;
+			background-color: $main-color;
+			z-index: 1;
 		}
 	}
 </style>
