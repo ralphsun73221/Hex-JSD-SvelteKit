@@ -119,3 +119,4 @@
 
 - 今天學到了一個新的東西，叫做 Destructuring Assignment（解構賦值），MDN 的[說明](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)，讓開發者可以直接從 object or array 裡面提取 value 後直接賦值給變數
 - 由於我的 getTime() 函式使用 object return 當下的時間出去，使用這個方式我就不用再寫三次宣告三個變數，只要寫一次就可以了
+- 預設的情況下，變數裡面的名稱需要跟 object 的內容一致，但還是可以自訂名稱，譬如 `const {h: hour, m: minute, s: second} = getTime();` 後面也能直接用 hour 來去的 value
