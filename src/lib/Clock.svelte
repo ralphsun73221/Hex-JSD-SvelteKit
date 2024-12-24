@@ -1,12 +1,24 @@
 <script lang="ts">
-	let time = new Date(); // 獲取當下時間
+	// let time = new Date(); // 獲取當下時間
 
 	// 將當下時間設定成變數
-	let hour: number = time.getHours();
-	let minute: number = time.getMinutes();
-	let second: number = time.getSeconds();
+	// let hour: number = time.getHours();
+	// let minute: number = time.getMinutes();
+	// let second: number = time.getSeconds();
 
 	// console.log(`${hour}:${minute}:${second}`);
+
+	function getTimes() {
+		let time = new Date();
+		let hour: number = time.getHours();
+		let minute: number = time.getMinutes();
+		let second: number = time.getSeconds();
+
+		// console.log(`${hour}:${minute}:${second}`);
+		return { h: hour, m: minute, s: second };
+	}
+
+	setInterval(getTimes, 1000);
 </script>
 
 <svelte:head>
@@ -60,7 +72,7 @@
 				width: 8px;
 				height: 72px;
 				background-color: #ffffff;
-        border-radius: 8px 8px 0 0;
+				border-radius: 8px 8px 0 0;
 				// background-image: url('/hour-hand.svg');
 				// display: flex;
 				// justify-content: center;
@@ -78,7 +90,7 @@
 				width: 8px;
 				height: 96px;
 				background-color: #ee7e31;
-        border-radius: 8px 8px 0 0;
+				border-radius: 8px 8px 0 0;
 				// background-image: url('/minute-hand.svg');
 				// position: absolute;
 				// display: flex;
@@ -97,7 +109,7 @@
 				width: 4px;
 				height: 120px;
 				background-color: $seconds;
-        border-radius: 8px 8px 0 0;
+				border-radius: 8px 8px 0 0;
 				// background-image: url('/second-hand.svg');
 				// position: absolute;
 				// display: flex;
