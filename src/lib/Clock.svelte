@@ -9,6 +9,7 @@
 	// console.log(`${hour}:${minute}:${second}`);
 
 	function getTimes() {
+		// 取得當下時間，並將時間使用 object return
 		let time = new Date();
 		let hour: number = time.getHours();
 		let minute: number = time.getMinutes();
@@ -18,7 +19,9 @@
 		return { h: hour, m: minute, s: second };
 	}
 
-	setInterval(getTimes, 1000);
+	setInterval(getTimes, 1000); // 每 1000 毫秒（1秒鐘）執行一次 getTime 取得當下時間
+
+	const { h, m, s } = getTimes();
 </script>
 
 <svelte:head>
