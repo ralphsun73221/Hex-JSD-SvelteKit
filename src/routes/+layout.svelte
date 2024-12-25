@@ -7,5 +7,5 @@
 
 {@render children()}
 
-<style lang="scss">
+<style>
 </style>
