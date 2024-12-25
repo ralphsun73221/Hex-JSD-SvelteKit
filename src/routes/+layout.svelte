@@ -2,6 +2,10 @@
 	let { children } = $props();
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="/src/reset.scss" />
+</svelte:head>
+
 <nav>
 	<ul>
 		<li><a href="/">九九乘法表</a></li>
