@@ -19,10 +19,19 @@
 		return { h: hour, m: minute, s: second };
 	}
 
+	function position() {
+		// 用來計算指針位置，最後 return 計算後的數值
+    // 目前可以知道的是每 5 rotate = 1 秒鐘
+    const { h, m, s } = getTimes();
+
+
+
+	}
+
 	// setInterval(getTimes, 1000); // 每 1000 毫秒（1秒鐘）執行一次 getTime 取得當下時間
 	setInterval(() => {
-		const { h, m, s } = $state(getTimes());
-		console.log(`${h}:${m}:${s}`);
+		const { h, m, s } = getTimes();
+		// console.log(`${h}:${m}:${s}`);
 	}, 1000);
 </script>
 
@@ -68,7 +77,7 @@
 			position: relative;
 
 			.hour {
-				--rotate: 0;
+				--rotate: 90;
 				position: absolute;
 				left: 50%;
 				bottom: 50%;
@@ -124,16 +133,15 @@
 			}
 		}
 		.clock-bg::before {
-			--rotate: 0;
 			content: '';
 			position: absolute;
-			left: 50%;
-			bottom: 49%;
-			transform: translate(-50%) rotate(calc(var(--rotate) * 1deg));
+			left: 50.1%;
+      top: 48.7%;
+      transform: translate(-50%);
 			width: 12px;
 			height: 12px;
 			border-radius: 50%;
-			background-color: $main-color;
+			background-color: $hour;
 			z-index: 1;
 		}
 	}
