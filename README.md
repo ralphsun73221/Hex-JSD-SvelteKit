@@ -119,4 +119,15 @@
 
 - 今天學到了一個新的東西，叫做 Destructuring Assignment（解構賦值），MDN 的[說明](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)，讓開發者可以直接從 object or array 裡面提取 value 後直接賦值給變數
 - 由於我的 getTime() 函式使用 object return 當下的時間出去，使用這個方式我就不用再寫三次宣告三個變數，只要寫一次就可以了
-- 預設的情況下，變數裡面的名稱需要跟 object 的內容一致，但還是可以自訂名稱，譬如 `const {h: hour, m: minute, s: second} = getTime();` 後面也能直接用 hour 來去的 value
+- 預設的情況下，變數裡面的名稱需要跟 object 的內容一致，但還是可以自訂名稱，譬如 `const {h: hour, m: minute, s: second} = getTime();`
+
+### 241225
+
+- 好的，從 18 號到現在終於讓指針可以即時的根據時間去動作了...
+- 我把邏輯拆成了兩個邏輯：
+  1. `getTimes()` 用來取的時間，並且將時間用 obj 的方式 return
+  2. `position()` 則用 `getTimes()` 取的的時間來去計算位置，並且將計算出來的位置放回變數裡面
+- 寫成同一個是可以跟簡單，但是我個人比較偏好一個 function 就只做一件事情這個方式
+- 最後就是將變數放到對應的 tag 裡面
+- 但是目前依然會有位置對不準的問題，這個我有點苦手，但也可能是我 CSS 的技能不夠好😭
+- 就之後再來處理吧 
