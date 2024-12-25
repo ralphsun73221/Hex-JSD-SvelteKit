@@ -122,7 +122,7 @@
 			}
 
 			.second {
-				width: 14px;
+				width: 13px;
 				height: 120px;
 				background-image: url('/second-hand.svg');
 				// background-color: $seconds;
