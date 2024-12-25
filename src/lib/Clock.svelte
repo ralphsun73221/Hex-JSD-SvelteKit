@@ -19,9 +19,11 @@
 		return { h: hour, m: minute, s: second };
 	}
 
-	setInterval(getTimes, 1000); // 每 1000 毫秒（1秒鐘）執行一次 getTime 取得當下時間
-
-	const { h, m, s } = getTimes();
+	// setInterval(getTimes, 1000); // 每 1000 毫秒（1秒鐘）執行一次 getTime 取得當下時間
+	setInterval(() => {
+		const { h, m, s } = $state(getTimes());
+		console.log(`${h}:${m}:${s}`);
+	}, 1000);
 </script>
 
 <svelte:head>
