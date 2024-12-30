@@ -79,7 +79,7 @@
 		.clock-bg {
 			width: 500px;
 			height: 500px;
-			background-image: url('/clock-bg.svg');
+			background-image: url('/clock-bg2.svg');
 			margin: 0 auto;
 			// display: flex;
 			// justify-content: center;
@@ -122,7 +122,7 @@
 			}
 
 			.second {
-				width: 13px;
+				width: 12.5px;
 				height: 120px;
 				background-image: url('/second-hand.svg');
 				// background-color: $seconds;
@@ -138,7 +138,7 @@
 		.clock-bg::before {
 			content: '';
 			position: absolute;
-			left: 50.5%;
+			left: 50.8%;
 			bottom: 46.5%;
 			transform-origin: bottom;
 			transform: translate(-50%, -100%);
