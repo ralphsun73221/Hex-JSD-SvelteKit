@@ -4,8 +4,6 @@
 
   // 將 card-content 裡面會使用到的資料統一用函式處理
   const CARD_CONTENT = (num) => {
-    console.log('目前的 num:', num); // 會看到是 2,3,4...9
-    console.log('完整的 arr:', arr); // 會看到是 [1,2,3,4,5,6,7,8,9]
     return arr.map((item) => `${num} X ${item} = ${num * item}`);
   };
 </script>
