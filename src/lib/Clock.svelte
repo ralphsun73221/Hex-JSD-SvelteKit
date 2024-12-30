@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	let hA = 0;
 	let mA = 0;
 	let sA = 0;
@@ -15,9 +15,9 @@
 	function getTimes() {
 		// 取得當下時間，並將時間使用 object return
 		let time = new Date();
-		let hour: number = time.getHours();
-		let minute: number = time.getMinutes();
-		let second: number = time.getSeconds();
+		let hour = time.getHours();
+		let minute = time.getMinutes();
+		let second = time.getSeconds();
 
 		return { h: hour, m: minute, s: second };
 
