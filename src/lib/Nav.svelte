@@ -5,7 +5,7 @@
 	<ul>
 		<li><a href="/">九九乘法表</a></li>
 		<li><a href="/clock">時鐘</a></li>
-		<li><a href="/Calculator">計算機</a></li>
+		<li><a href="/calculator">計算機</a></li>
 	</ul>
 </nav>
 
