@@ -24,6 +24,13 @@
 			background-color: #062145;
 			box-shadow: 0px 20px 40px #00000066;
 			border-radius: 20px;
+
+			.results {
+				width: 350px;
+				height: 109px;
+				background-color: #041936;
+				border-radius: 20px 20px 0 0;
+			}
 		}
 	}
 </style>
